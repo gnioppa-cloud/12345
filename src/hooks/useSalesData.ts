@@ -23,6 +23,16 @@ export function useSalesData() {
     async function load() {
       setLoading(true);
       setError(null);
+
+      if (!supabase) {
+        setError(
+          'Supabase 환경 변수(VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY)가 설정되지 않았습니다. Vercel 프로젝트의 Environment Variables를 확인하세요.'
+        );
+        setRows([]);
+        setLoading(false);
+        return;
+      }
+
       const { data, error } = await supabase
         .from('sales')
         .select(
