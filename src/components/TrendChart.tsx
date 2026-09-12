@@ -53,7 +53,7 @@ export function TrendChart({ rows }: { rows: SaleRow[] }) {
               width={48}
             />
             <Tooltip
-              formatter={(value: number) => formatWon(value)}
+              formatter={(value) => formatWon(Number(value))}
               contentStyle={{
                 background: 'var(--surface)',
                 border: '1px solid var(--line)',

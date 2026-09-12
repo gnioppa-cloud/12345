@@ -44,7 +44,7 @@ export function ItemBreakdown({ rows }: { rows: SaleRow[] }) {
                 ))}
               </Pie>
               <Tooltip
-                formatter={(value: number) => formatWon(value)}
+                formatter={(value) => formatWon(Number(value))}
                 contentStyle={{
                   background: 'var(--surface)',
                   border: '1px solid var(--line)',
